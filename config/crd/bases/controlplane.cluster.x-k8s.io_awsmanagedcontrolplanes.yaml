@@ -1105,6 +1105,15 @@ spec:
                       - size
                       type: object
                     type: array
+                  partitionNumber:
+                    description: PartitionNumber is the partition number within the
+                      placement group in which to launch the instance. This value
+                      is only valid if the placement group, referred in `PlacementGroupName`,
+                      was created with strategy is set to partition.
+                    format: int64
+                    maximum: 7
+                    minimum: 1
+                    type: integer
                   placementGroupName:
                     description: PlacementGroupName specifies the name of the placement
                       group in which to launch the instance.
@@ -2957,6 +2966,15 @@ spec:
                       - size
                       type: object
                     type: array
+                  partitionNumber:
+                    description: PartitionNumber is the partition number within the
+                      placement group in which to launch the instance. This value
+                      is only valid if the placement group, referred in `PlacementGroupName`,
+                      was created with strategy is set to partition.
+                    format: int64
+                    maximum: 7
+                    minimum: 1
+                    type: integer
                   placementGroupName:
                     description: PlacementGroupName specifies the name of the placement
                       group in which to launch the instance.

@@ -610,11 +610,18 @@ func (s *Service) runInstance(role string, i *infrav1.Instance) (*infrav1.Instan
 		}
 	}
 
+	if i.PlacementGroupName == "" && i.PartitionNumber != 0 {
+		return nil, errors.Errorf("partitionNumber is set but placementGroupName is empty")
+	}
+
 	if i.PlacementGroupName != "" {
 		if input.Placement == nil {
 			input.Placement = &ec2.Placement{}
 		}
 		input.Placement.GroupName = &i.PlacementGroupName
+		if i.PartitionNumber != 0 {
+			input.Placement.PartitionNumber = &i.PartitionNumber
+		}
 	}
 
 	out, err := s.EC2Client.RunInstancesWithContext(context.TODO(), input)
