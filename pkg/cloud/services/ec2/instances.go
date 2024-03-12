@@ -236,6 +236,8 @@ func (s *Service) CreateInstance(scope *scope.MachineScope, userData []byte, use
 
 	input.PlacementGroupName = scope.AWSMachine.Spec.PlacementGroupName
 
+	input.PartitionNumber = scope.AWSMachine.Spec.PartitionNumber
+
 	input.PrivateDNSName = scope.AWSMachine.Spec.PrivateDNSName
 
 	s.scope.Debug("Running instance", "machine-role", scope.Role())
