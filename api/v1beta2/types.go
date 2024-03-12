@@ -223,7 +223,7 @@ type Instance struct {
 
 	// PartitionNumber is the partition number within the placement group in which to launch the instance.
 	// This value is only valid if the placement group, referred in `PlacementGroupName`, was created with
-	// strategy is set to partition.
+	// strategy set to partition.
 	// +kubebuilder:validation:Minimum:=1
 	// +kubebuilder:validation:Maximum:=7
 	// +optional
